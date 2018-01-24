@@ -32,6 +32,22 @@ namespace WorldGame
         private void CreateCommands()
         {
             terminal.AddCommand(
+                "north",
+                "Moves you north",
+                () => GoDirection(Direction.North));
+            terminal.AddCommand(
+                "south",
+                "Moves you south",
+                () => GoDirection(Direction.South));
+            terminal.AddCommand(
+                "east",
+                "Moves you east",
+                () => GoDirection(Direction.East));
+            terminal.AddCommand(
+                "west",
+                "Moves you west",
+                () => GoDirection(Direction.West));
+            terminal.AddCommand(
                 "help",
                 "Lists the commands",
                 ShowCommands);
@@ -48,29 +64,33 @@ namespace WorldGame
                 "Gives the exits of the room",
                 ShowAllExits);
             terminal.AddCommand(
-                "north",
-                "Moves you north",
-                () => { GoDirection(Direction.North); });
-            terminal.AddCommand(
-                "south",
-                "Moves you south",
-                () => { GoDirection(Direction.South); });
-            terminal.AddCommand(
-                "east",
-                "Moves you east",
-                () => { GoDirection(Direction.East); });
-            terminal.AddCommand(
-                "west",
-                "Moves you west",
-                () => { GoDirection(Direction.West); });
-            terminal.AddCommand(
                 "up",
                 "Moves you up",
-                () => { GoDirection(Direction.Up); });
+                () => GoDirection(Direction.Up));
             terminal.AddCommand(
                 "down",
                 "Moves you down",
-                () => { GoDirection(Direction.Down); });
+                () => GoDirection(Direction.Down));
+            terminal.AddCommand(
+                "smile",
+                "Smile emote",
+                () => Console.WriteLine("You smile at nothing."));
+            terminal.AddCommand(
+                "wave",
+                "Wave emote",
+                () => Console.WriteLine("You wave at whatever's in front of you."));
+            terminal.AddCommand(
+                "jump",
+                "Jump emote",
+                () => Console.WriteLine("You jump in the air."));
+            terminal.AddCommand(
+                "dance",
+                "Dance emote",
+                () => Console.WriteLine("You do a little dance."));
+            terminal.AddCommand(
+                "punch",
+                "Punch emote",
+                () => Console.WriteLine("You throw a punch at the air."));
         }
 
         private void Look()
@@ -137,6 +157,11 @@ namespace WorldGame
             {
                 Console.WriteLine($"{command.Name} - {command.Description}");
             }
+        }
+
+        private void Wave()
+        {
+            Console.WriteLine("You wave to whatever's in front of you.");
         }
 
         private void QuitGame()
