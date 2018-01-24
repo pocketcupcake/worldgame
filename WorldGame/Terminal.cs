@@ -37,7 +37,7 @@ namespace WorldGame
         {
             foreach (Command command in GetAllCommands()) 
             {
-                if (command.Name == entry)
+                if (command.Name.StartsWith(entry))
                 {
                     return command;
                 }
